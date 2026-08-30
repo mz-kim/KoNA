@@ -1,0 +1,9 @@
+KoNA
+Copyright 2026 Minji Kim, Jihyoung Jang, and Hyounghun Kim
+
+This product includes original code, documentation, configuration files, and
+annotations developed for the KoNA benchmark.
+
+Third-party source images, model implementations, model weights, and services
+are not covered by this repository's Apache License 2.0. See
+THIRD_PARTY_NOTICES.md for source and license information.

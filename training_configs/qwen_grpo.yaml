@@ -1,0 +1,39 @@
+implementation:
+  repository: https://github.com/QwenLM/Qwen2.5-VL
+  use_unmodified_official_code: true
+
+model:
+  family: qwen
+  initialization: best Qwen SFT checkpoint
+
+data:
+  train: dataset/train/grpo.jsonl
+  validation: dataset/annotations/validation.jsonl
+
+reward:
+  implementation: training_configs/reward.py
+  function: llm_judge_reward_function
+  judge_model: gpt-5-mini-2025-08-07
+  strategic_pass_reward: 1.0
+  factual_failure_penalty: 0.3
+
+training:
+  seed: 807
+  num_train_epochs: 30
+  num_generations: 4
+  per_device_train_batch_size: 2
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 2
+  learning_rate: 5.0e-6
+  lr_scheduler_type: cosine
+  beta: 0.01
+  temperature: 1.0
+  max_prompt_length: 750
+  max_completion_length: 1000
+  bf16: true
+  gradient_checkpointing: true
+  evaluation_strategy: steps
+  eval_steps: 10
+  save_strategy: steps
+  save_steps: 10
+  load_best_model_at_end: true
