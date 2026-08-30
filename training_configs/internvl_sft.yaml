@@ -1,0 +1,41 @@
+implementation:
+  repository: https://github.com/OpenGVLab/InternVL
+  use_unmodified_official_code: true
+
+model:
+  name_or_path: OpenGVLab/InternVL3-2B-Instruct
+  conversation_style: internvl2_5
+  freeze_vision_encoder: true
+  freeze_language_model: false
+  freeze_mlp: false
+  force_image_size: 448
+  max_dynamic_patch: 6
+  down_sample_ratio: 0.5
+  dynamic_image_size: true
+  use_thumbnail: true
+
+data:
+  train_metadata: dataset/train/internVL/train_pure100_selective1000_contrast100.json
+  validation_metadata: dataset/train/validation/internVL/validation_selective300.json
+  max_seq_length: 16384
+  dataloader_num_workers: 4
+
+training:
+  seed: 807
+  num_train_epochs: 3
+  per_device_train_batch_size: 4
+  per_device_eval_batch_size: 4
+  gradient_accumulation_steps: 4
+  gradient_checkpointing: true
+  optimizer: adamw_torch
+  learning_rate: 2.0e-5
+  lr_scheduler_type: cosine
+  warmup_ratio: 0.03
+  weight_decay: 0.05
+  bf16: true
+  evaluation_strategy: epoch
+  save_strategy: epoch
+  load_best_model_at_end: true
+  metric_for_best_model: eval_loss
+  early_stopping_patience: 1
+  deepspeed: training_configs/ds_config.json
