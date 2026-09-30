@@ -6,10 +6,12 @@
 <p><strong>EMNLP 2026 Main Conference</strong></p>
 <p>Minji Kim · Jihyoung Jang · Hyounghun Kim</p>
 <p>
+  <a href="https://kona-emnlp2026.github.io/">🌐 Project Page</a> ·
   <a href="https://huggingface.co/datasets/mz-kim/KoNA">🤗 Dataset</a> ·
   <a href="https://arxiv.org/abs/2609.04720">📄 Paper</a>
 </p>
 <p>
+  <a href="https://kona-emnlp2026.github.io/"><img src="https://img.shields.io/badge/Project-Page-c80060.svg" alt="Project Page"></a>
   <a href="https://arxiv.org/abs/2609.04720"><img src="https://img.shields.io/badge/arXiv-2609.04720-b31b1b.svg" alt="arXiv:2609.04720"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License: Apache 2.0"></a>
 </p>
